@@ -1,0 +1,30 @@
+<% if current_user %>
+    <%= current_user.email %>
+
+    <%= link_to "edit profile", edit_user_path(@user) %> |
+    <%= link_to "Log out", "/signout" %>
+    <% else %>
+    <%= link_to "Sign up", "/signup" %> | <%= link_to "Sign in", "/signin" %>
+<% end %>
+
+
+<h1>Projects</h1>
+<div>
+    <span>
+        All projects
+
+        <% @user.projects.each do |project| %>
+            <div><%= project.name %></div>
+            <%= link_to "Edit project", edit_user_project_path(current_user, @user) %>
+        <% end %>
+
+    </span> |
+
+    <span>
+        Created by me
+    </span> |
+
+    <span>
+        Shared with me
+    </span>
+</div>
