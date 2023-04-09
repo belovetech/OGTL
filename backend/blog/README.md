@@ -1,0 +1,3 @@
+# Blog
+
+Blog Rails Application
